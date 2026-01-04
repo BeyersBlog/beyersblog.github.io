@@ -1,6 +1,10 @@
 <!DOCTYPE html>
+
 <html>
+
   <head>
+      {% include cookieconsent.html %}
+
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
     {% include meta.html %}
@@ -26,10 +30,14 @@
             <p class="site-description">{{ site.description }}</p>
           </div>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
+<nav>
+  <a href="{{ site.baseurl }}/">Blog</a>
+  <a href="{{ site.baseurl }}/longreads/">Longreads</a>
+  <a href="{{ site.baseurl }}/projects/">Projects</a>
+  <a href="{{ site.baseurl }}/about">About</a>
+  <a href="{{ site.baseurl }}/impressum">Impressum</a>
+</nav>
+
         </header>
       </div>
     </div>
