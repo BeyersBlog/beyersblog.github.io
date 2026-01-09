@@ -1,0 +1,36 @@
+---
+layout: post
+title: "KI-gestützte Entwicklung: Wenn das Produktivitäts-Tool zum Sicherheitsrisiko wird"
+date: 2026-01-09
+---
+
+Die Integration KI-gestützter Tools wie GitHub Copilot in den Entwicklungsalltag verspricht mehr Geschwindigkeit und Effizienz. Analysen zeigen jedoch ein diffizileres Bild: KI-Codeassistenten liefern in einem relevanten Anteil ihrer Vorschläge Code mit bekannten Sicherheits-Schwachstellen (CWEs) – auch in neueren Versionen [1]
+
+Gleichzeitig strukturiert Microsoft sein Angebot so, dass umfassender Schutz und rechtliche Absicherung vor allem in kostenpflichtigen Business-/Enterprise-Paketen zu finden sind [2]. Diese Entwicklung wirft Fragen nach einem neuen ökonomischen Kreislauf in der Softwareentwicklung auf.
+
+## Mehr Code, mehr Leaks
+
+Die Verheißung von KI-Assistenten ist simpel: mehr Geschwindigkeit, weniger Routinearbeit. Die Realität ist komplexer. Unabhängige Analysen – unter anderem von GitGuardian – zeigen, dass in einer Stichprobe Copilot-aktiver Repositories 6,4 % mindestens ein Secret geleakt haben, gegenüber 4,6 % in der Vergleichsmenge (≈ 40 % höher) [3].
+
+Der Grund ist systemisch begründet: KI-Modelle wie Copilot sind primär darauf optimiert, kontextuell plausiblen und funktionierenden Code zu generieren – nicht zwangsläufig sicheren. Und selbst bei klassischeren „CWE“-Risiken ist das Bild nicht beruhigend: In einer Replikationsstudie sank der Anteil verwundbarer Copilot-Vorschläge zwar von 36,54 % auf 27,25 %, bleibt aber klar messbar vorhanden. Was früher ein bewusster, prüfbarer Schritt eines Entwicklers war, geschieht heute automatisiert und oft unbemerkt im Hintergrund. Die KI skaliert somit nicht nur die Produktivität, sondern potenziell auch die Fehlerquote.
+
+Dabei darf jedoch nicht übersehen werden, dass auch menschliche Entwickler ohne KI-Unterstützung regelmäßig Fehler machen und Secrets leaken; die KI wirkt hier primär als Katalysator, der diese bereits existierenden Risiken potenziert.
+
+## Der ökonomische Kreislauf: Ursache und Symptombekämpfung
+
+Microsoft hat ein betriebswirtschaftlich brillantes, für Kunden jedoch kostspieliges Modell geschaffen. Es lässt sich als dreistufiger Zyklus beschreiben:
+
+**Risiko-Erzeugung:**  
+Copilot beschleunigt die Entwicklung, erhöht aber messbar die Angriffsfläche – sowohl durch verwundbare Vorschläge (CWE-Muster) als auch durch eine höhere Secret-Leak-Inzidenz in Copilot-aktiven Repos.
+
+**Symptombekämpfung:**  
+Um diese Fehler wieder einzufangen, positioniert Microsoft Security Copilot – abgerechnet über zusätzliche kostende Security Compute Units (SCUs).
+
+Das ist Geschäftssinn pur. Microsoft hat das perfekte, in sich geschlossene Geschäftsmodell konstruiert: Sie verkaufen den Brandbeschleuniger für Ihren Entwicklungsalltag und halten, für den Fall der Fälle, den passenden Feuerlöscher in der teuren Enterprise-Lizenz parat.
+
+## Quellen
+
+1. Assessing the Security of GitHub Copilot’s Generated Code - A Targeted Replication Study: <https://arxiv.org/pdf/2311.11177v1>  
+2. Establishing trust in using GitHub Copilot: <https://resources.github.com/learn/pathways/copilot/essentials/establishing-trust-in-using-github-copilot>  
+3. Yes, GitHub Copilot can leak secrets: <https://blog.gitguardian.com/yes-github-copilot-can-leak-secrets/>  
+4. Microsoft Security Copilot pricing: <https://www.microsoft.com/en-us/security/pricing/microsoft-security-copilot
